@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Foodie</string>
+    <string name="unknown_error">\"Unknown Error\"</string>
+
+    <string name="no_internet">No internet connection</string>
+    <string name="service_not_available">Service not available</string>
+    <string name="timout">Connection Timeout</string>
+    <string name="connection_error">Connection Error</string>
+    <string name="connection_reset">Connection reset</string>
+</resources>

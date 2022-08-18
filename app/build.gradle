@@ -1,0 +1,90 @@
+plugins {
+    id 'kotlin-android'
+    id 'kotlinx-serialization'
+    id 'com.android.application'
+
+}
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.abedfattal.foodie"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+
+    implementation kt.ktx
+
+
+    implementation compose.ui
+    implementation compose.material
+    implementation compose.preview
+    implementation compose.activity
+    implementation compose.livedata
+    implementation compose.glide
+    androidTestImplementation compose.android_ui_junit
+    debugImplementation compose.ui_tooling
+    //debugImplementation compose.ui_test_manifest
+
+    implementation lifecycle.runtime
+    implementation lifecycle.livedata
+
+    implementation koin.compose
+
+    implementation retrofit.core
+    implementation retrofit.interceptor
+    implementation retrofit.converter
+    implementation retrofit.coroutines
+
+
+    //Dependencies for local unit tests
+    testImplementation kt.ktx_test
+    testImplementation coroutines.testing
+    testImplementation tests.mock_server
+    testImplementation tests.ext_junit
+    testImplementation tests.junit
+    testImplementation tests.espresso_core
+    testImplementation tests.espresso_contrib
+    testImplementation tests.hamcrest
+    testImplementation tests.robolectric
+    testImplementation tests.dexmaker
+    testImplementation tests.arch_core_testing
+
+}
