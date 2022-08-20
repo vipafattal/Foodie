@@ -1,24 +1,25 @@
 package com.abedfattal.foodie.ui
 
 import androidx.lifecycle.*
-import com.abedfattal.foodie.framework.repository.IRecipesRepository
+import com.abedfattal.foodie.framework.repository.RecipesRepository
 import com.abedfattal.foodie.models.ProcessState
 import com.abedfattal.foodie.models.Recipe
 
-class MainActivityViewModel(private val recipesRepository: IRecipesRepository) : ViewModel() {
+class MainActivityViewModel(private val recipesRepository: RecipesRepository) : ViewModel() {
 
 
-    private val _searchQuery: MutableLiveData<String> = MutableLiveData("pizza")
-    val searchQuery: LiveData<String> get() = _searchQuery
+    private val _selectedCategory: MutableLiveData<String> = MutableLiveData("pizza")
+    val selectedCategory: LiveData<String> get() = _selectedCategory
 
     val searchResults: LiveData<List<Recipe>> =
-        Transformations.switchMap(searchQuery, ::runQuranSearch)
+        Transformations.switchMap(selectedCategory, ::runQuranSearch)
 
     private val _searchProcessState: MutableLiveData<ProcessState<Unit>> = MutableLiveData()
-    private val searchProcessState: LiveData<ProcessState<Unit>> get() = _searchProcessState
+    val searchProcessState: LiveData<ProcessState<Unit>> get() = _searchProcessState
 
-    fun submitNewSearch(newQuery: String) {
-        _searchQuery.postValue(newQuery)
+    fun submitNewCategory(newQuery: String) {
+        if (newQuery != _selectedCategory.value)
+            _selectedCategory.postValue(newQuery)
     }
 
 

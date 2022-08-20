@@ -21,6 +21,7 @@ buildscript {
         okhttpLoggingInterceptorVersion = '4.9.3'
 
         koin_version = "3.2.0"
+        data_store_verison = "1.0.0"
 
         //Testing
         mockito_core_version = "4.5.1"
@@ -32,8 +33,7 @@ buildscript {
         hamcrestVersion = '2.2'
         robolectricVersion = '4.8.1'
         archTestingVersion = '2.1.0'
-
-        glide_compose =  '1.6.1'
+        compose_image_version =  '1.6.1'
 
         kt = [
                 core         : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
@@ -58,9 +58,10 @@ buildscript {
                 android_ui_junit: "androidx.compose.ui:ui-test-junit4:$compose_version",
                 ui_tooling      : "androidx.compose.ui:ui-tooling:$compose_version",
                 ui_test_manifest: "androidx.compose.ui:test-manifest:$compose_version",
-                glide   : "com.github.skydoves:landscapist-glide:$glide_compose",
+                glide   : "com.github.skydoves:landscapist-coil:$compose_image_version",
                 livedata: "androidx.compose.runtime:runtime-livedata:1.2.1"
         ]
+
 
         lifecycle = [
                 viewmodel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",

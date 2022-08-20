@@ -2,6 +2,7 @@ package com.abedfattal.foodie.models
 
 import androidx.annotation.StringRes
 import com.abedfattal.foodie.framework.utils.transform
+import com.abedfattal.foodie.models.ProcessState.*
 
 /**
  * A wrapper class for processes that can [Loading], [Success], or [Failed].
@@ -20,7 +21,7 @@ sealed class ProcessState<T> {
     /**
      * When the process [Success] it should hold [data]. e.g. remote API response data.
      */
-    data class Success<T>(val data: T?, val error: Exception? = null) : ProcessState<T>() {
+    data class Success<T>(val data: T? = null, val error: Exception? = null) : ProcessState<T>() {
 
     }
 

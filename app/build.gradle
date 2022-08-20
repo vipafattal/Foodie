@@ -74,6 +74,9 @@ dependencies {
     implementation retrofit.coroutines
 
 
+    implementation("androidx.datastore:datastore-preferences:$data_store_verison")
+
+
     //Dependencies for local unit tests
     testImplementation kt.ktx_test
     testImplementation coroutines.testing
